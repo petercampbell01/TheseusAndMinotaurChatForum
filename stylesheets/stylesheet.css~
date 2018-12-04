@@ -1,0 +1,190 @@
+/* RESET */
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, a, article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
+    /* Cancel out some differences between browser defaults */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+ 
+* {
+    /* The width of an element will be the size of its border box, not its content box (which is the normal default). */
+    box-sizing: border-box;
+}
+html{
+}
+header{
+	display: flex;
+	background-color: #485468;
+	color: #e6ecf7;
+}
+header h1{
+	font-family: Helvetica;
+	font-size: 3rem;
+	width: 90%;
+	padding-top: 1rem;
+	padding-left: 3rem;
+	padding-bottom: 1rem;
+}
+
+body{
+	background-color: #485468;
+}
+#wrapper{
+	display: flex;
+	color: #4f4f4f;
+
+}
+#groups{
+	width: 25%;	
+	background-color: #b0b4ba;
+}
+
+#currentDiscussion{
+	width: 50%;
+	background-color: #b0b4ba;
+}
+
+.content{
+	width: 95%;	
+	height: 100%;
+	background-color: #eaebed;
+	margin: 0;
+ 	border: 1px solid #7f8082;
+ 	border-top: none;
+ 	border-left: none;
+	padding: 1em 1em 2em 1em;
+	font-family: tahoma, arial, san-serif;
+	line-height: 1.5;
+}
+.content p{
+	width: 100%; 	
+ /*border: 1px solid #7f8082;
+	border-radius: 1rem; */
+ 	margin: 0.5em;
+	padding: 1em 1em 2em 1em;
+	background-color: #eaebed;
+	font-family: tahoma, arial, san-serif;
+	line-height: 1.5;
+}
+
+#myMessages{
+	width:25%;
+	background-color: #b0b4ba;
+/*	border-bottom: 1px solid #7f8082;
+*/
+	
+}
+h3{
+	font-weight: bold;
+}
+.info{
+	width: 100%; 	
+ 	border: 1px solid #7f8082;
+ 	border-top: none;
+	margin: 0;
+	padding: 1em 1em 2em 1em;
+	background-color: #eaebed;
+	font-family: tahoma, arial, san-serif;
+	line-height: 1.5;
+
+}
+.info ul{
+ list-style-image: url(../img/bull-horns.png);
+ padding-left: 1em;
+}
+
+footer{
+	padding: 2em;	
+	background-color: #485468;
+	color: #e6ecf7;
+}
+footer p{
+	font-family: tahoma, arial, sans-serif;
+	font-size: 0.8em;
+	padding: 0 auto;
+}
+#logo{
+	padding-right: 2em;
+}
+table{
+/*	background-color: white;
+*/	width: 100%;
+	font-size: 1em;
+	border-collapse: collapse;
+	background-color: white;
+	padding-bottom: 2em;
+}
+table caption{
+	font-weight: bold;
+	padding-bottom: 1 rem;
+
+}
+thead{
+	font-weight: bold;
+	background-color: white;
+	padding: 0.5 em, 0;
+}
+
+table td{
+	padding: 0 0.25em;
+	min-width: 6em;
+	border: 2px solid #b0b4ba
+	;
+	
+
+	
+
+}
+table tr{
+
+}
+
+/*Like it box */
+.likeIt{
+	display: flex;
+	justify-content: flex-end;
+/*	border:1px solid black;*/
+	padding-top: 1em;
+	padding-right: 1em;
+	margin: 0;
+	border-radius: 1rem;
+/*	background-color: #b0b4ba;
+*/
+}
+.likeIt img{
+	width: 1em;
+	height: 1.5em;
+
+}
+
+.likeIt p{
+	padding: 0 1em 0 1em;
+	margin: 0;
+	width: 3em;
+	background-color: white;
+
+}
+
+a{
+	color: grey;
+	text-decoration: none;
+}
+a:hover{
+	color: #485468;
+}
+header a{
+	color: white;
+	padding: 2rem;
+	font-family: tahoma, arial, san-serif;
+}
+header a:hover{
+	color: black;
+}
+
+#messageArea{
+	width = 50%;
+	height = 30%;
+}

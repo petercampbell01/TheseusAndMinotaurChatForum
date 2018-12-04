@@ -1,0 +1,104 @@
+<?php
+//set_include_path('/home/user/Desktop/PhpServerSide/Assignment2/');
+//echo phpinfo();
+require_once ('MySQLDB.php');
+include_once ('myFunctions.php');
+include_once ('db.php');
+session_save_path("./");
+session_start();
+$email = '';
+$password ='';
+$user_id = '';
+
+function isValidLogin(  $email , $password ) {
+   $result = true;
+	if ($email =='') {
+        $result = false;
+        echo 'A surname must be entered <br>';
+   }    
+   if ($password ==''){
+        $result = false;
+        echo 'A password must be entered <br>';
+   }
+   return $result;
+}
+
+
+if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' ) {
+     $email = $_POST[ 'email' ];
+     $password = $_POST[ 'password' ];
+     var_dump($email);
+     var_dump($password);
+     if ( isValidLogin( $email, $password ) ){
+        $user_id = getUser( $db, $email, $password );
+        if ( !$user_id  ) {
+            echo "Not a valid email, password combination <br />";
+        }    
+        else{
+              $_SESSION['user_id'] = $user_id;
+               header('location: main.php');
+        }    
+    }
+}    
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="utf-8">
+
+		<h1>Theseus and the Minotaur</h1>
+		<form action = "" method="post">
+			<label for="email">E-mail</label>
+			<input type="text" name="email"/>
+			<label for ="password">Password</label>
+			<input type="password" id = "pass" name="password" onkeyup ="verifyStrength()"/>
+			<input type="submit" value="Login"/>
+		</form>	
+		<span id = "str"></span>
+</html>
+<script>
+function verifyStrength(){
+	let strength = 0	
+	let x = document.getElementById('pass')
+	let password = x.value
+	console.log ( password)
+	strength += password.length	
+	let test1 = new RegExp('/d');
+
+	// Do testing
+	if(test1.test(password))
+		strength += 2
+	let test2 = new RegExp('[a-z]')
+	if(!test2.test(password)){
+		strength += 2	
+	}
+	let test3 = new RegExp ('[!-*]')
+	if(test3.test(password)){
+		strength += 2	
+	}
+	
+	//provide feedback
+	let y = document.getElementById('str')
+	y.style.color = 'black'
+	if(strength > 0){
+		y.innerHTML = 'weak'
+		y.style.backgroundColor = 'red'
+	}
+	if(strength > 8){
+		y.innerHTML = 'medium'
+		y.style.backgroundColor = 'yellow'
+	}
+	if(strength > 12){
+		y.innerHTML = 'good'
+		y.style.backgroundColor = 'yellow'
+	}
+	if(strength >=14){
+		y.innerHTML = 'strong'
+		y.style.backgroundColor = 'green'
+	
+	}
+	
+	console.log("Is this working?")
+
+}
+
+</script>

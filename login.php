@@ -1,0 +1,40 @@
+<?php
+set_include_path('./');
+require_once ('MySQLDB.php');
+require_once ('User.php');
+include_once ('myFunctions.php');
+include_once ('db.php');
+session_save_path("./");
+session_start();
+$currentUser;
+function isValidLogin(  $email , $password ) {
+   $result = false;
+	if (!$email =='') {
+        $result = true;
+        echo 'A surname must be entered <br>';
+   }    
+   if (!$password ==''){
+        $result = true;
+        echo 'A password must be entered <br>';
+   }
+   return $result;
+}
+
+if (isset($_POST[ 'email' ]) && isset($_POST[ 'password' ])) {
+     $sanEmail = filter_var($_POST[ 'email' ], FILTER_SANITIZE_EMAIL);
+     $email = filter_var($sanEmail, FILTER_VALIDATE_EMAIL);
+		if (!filter_var($sanEmail, FILTER_VALIDATE_EMAIL)){
+			echo '<h2>Email could not be validated. Please check email address or use different address</h2>';		
+		}
+     $pass = filter_var($_POST[ 'password' ], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH); 
+	  $user_id = getUserID($db, $email, $pass); // authenticates user and returns user_id.
+        if ( !$user_id  ) {
+            echo "Not a valid email, password combination <br />";
+        } else{	  
+	  		$currentUser = initUser($db, $user_id );		
+			$_SESSION['user_id'] = $user_id;
+			$_SESSION['currentUser'] =$currentUser;
+			header('location: main.php');
+        } 
+	echo "Password was incorrect";           
+}

@@ -1,0 +1,136 @@
+/* RESET */
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, a, article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
+    /* Cancel out some differences between browser defaults */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+ 
+* {
+    /* The width of an element will be the size of its border box, not its content box (which is the normal default). */
+    box-sizing: border-box;
+}
+html{
+}
+header{
+	display: flex;
+	background-color: #485468;
+	color: #e6ecf7;
+}
+header h1{
+	font-family: Helvetica;
+	font-size: 3rem;
+	width: 50%;
+	padding-top: 1rem;
+	padding-left: 3rem;
+}
+header form{
+	width: 50%;
+	padding: 2rem 0 0 4rem;
+	font-size: 0.8rem;
+/*	display: flex;*/
+}
+header form label{
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+header form input{
+	height: 1.5rem;
+	width: 10em;
+	margin-left: 1em;
+}
+header form #password{
+	width: 10em;
+/*	margin-right: 1em;
+*/}
+header form #submit{
+	width: 4em;
+	margin-left: 1em;
+}
+body{
+	background-color: #485468;
+}
+#wrapper{
+	display: flex;
+	max-height:80%;
+
+}
+#main-image{
+	width: 50%;	
+	background-color: #485468;
+}
+#main-image img{
+	opacity: 0.7;
+	width: 100%;
+}
+#sign-up{
+	background-color: #b0b4ba;
+	width: 50%;
+
+}
+#sign-up form{
+	width: 50%;
+	min-width: 18em;
+	max width: 25em;
+	border: 1px solid #7f8082;
+	border-radius: 1rem;
+	margin: 3em auto 0 auto;
+	padding: 1em 1em 3em 1em;
+	background-color: #eaebed;
+	font-family: tahoma, arial, san-serif;
+	line-height: 1.5;
+
+}
+#sign-up h2{
+	font-family: tahoma, arial, san-serif;
+	font-size: 1.2em;
+	line-height: 1.5;
+}
+
+.labelled-input{
+	width: 80%;
+   padding: 0.5em 0;
+   display:flex;
+}
+.labelled-input label{
+	width: 40%;
+	flex-shrink: 0;
+   flex-grow: 0;
+}
+#passwordStrength{
+	text-align: center;	
+	font-size: 0.8em;
+	font-weight: bold;
+	border-radius: 5px;
+	padding: 0.5em 1em;
+}
+}
+.labelled-input input{
+/*	width: 60%;
+*/	flex-shrink: 0;
+   flex-grow: 0;
+   border-radius: 5px;
+}
+#formSubmit{
+	margin-left: 60%;
+	margin-right: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;	
+	
+}
+footer{
+	padding: 2em;	
+	background-color: #485468;
+	color: #e6ecf7;
+}
+footer p{
+	font-family: tahoma, arial, sans-serif;
+	font-size: 0.8em;
+	padding: 0 auto;
+}
+#logo{
+	padding-right: 1em;
+}

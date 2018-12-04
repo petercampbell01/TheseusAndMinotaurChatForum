@@ -1,0 +1,48 @@
+<?php
+require_once ('MySQLDB.php');
+include_once ('myFunctions.php');
+include_once ('db.php');
+
+class User{
+	public $email;
+	public $nickname;
+	public $lang;
+	public $password;
+	public $user_id;
+	public $allMyForums = [];
+	public $db;
+
+	public function __construct($db, $nickname, $email, $password, $lang){
+		echo "Creating a new user....";
+		$this->user_id = addUser($db, $nickname, $email, $password, $lang);
+		echo "New user id: $this->user_id";
+		$this->nickname = $nickname;
+		
+		$this->email = $email;
+		$this->lang = $lang;
+		$this->password = $password;
+		$this->db = $db;
+		//var_dump($this);
+	}
+	
+	public function getUserID(){
+		return $this->user_id;	
+	}
+	
+	public function getEmail(){
+		return $this->email;
+	}
+	public function setEmail($newEmail){
+		$this->email = $newEmail;	
+	}
+	
+	public function getNickname(){
+		return $this->nickname;	
+	}
+	public function getAllMyForums(){
+		return $this.allMyForums;	
+	}
+}
+
+//$user = new User($db, 'john', 'john', 'john', 'en');
+//echo $user->getUserID();

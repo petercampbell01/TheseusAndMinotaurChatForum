@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Theseus and the Minotaur | Login and Sign-up</title>
+	<link rel="stylesheet" href="./stylesheets/login-stylesheet.css">
+</head>
+<body>
+	<header>
+		<h1>Theseus and the Minotaur</h1>
+		<form action = "" method="post">
+			<label for="email">E-mail</label>
+			<input type="text" id="email"/>
+			<label for ="password">Password</label>
+
+			<input type="password" id="password"/>
+			<input type="submit" value="Login"/>
+		</form>	
+		<img id="logo" src="./img/bull-horns_large.png" alt="Horns of the Minotaur">
+	</header>
+	<div id="wrapper">
+		<div id="main-image">
+			<img src="./img/theseus-defeats-the-minotaur.jpg" alt="Theseus defeats the Minotaur">	
+			</div>
+		<div id="sign-up">
+			<form id="new-member" action="" method="post">
+				<h2>Join Theseus and his friends in a maze of fun!</h2>
+				<div class="labelled-input">			
+					<label for="nickname">Nickname:</label>
+		  			<input type="text" id="nickname"/>
+				</div>
+				<div class="labelled-input">			
+					<label for="newEmail">E-Mail:</label>
+					<input type="text" id="newEmail"/>
+				</div>
+				<div class="labelled-input">			
+					<label for="newPass">Password:</label>
+					<input type="password" id="newPass"/>
+				</div>
+				<div class="labelled-input">			
+					<label for="newPassConf">Confirm:</label>
+					<input type="password" id="newPassConf"/>
+				</div>
+				<div class="labelled-input">
+					<label for="lang">Language:</label>
+					<select name="lang" id="langChoice" required>
+						<option selected disabled = "blank">Choose language</option>
+						<option>English</option>
+						<option>Hindi</option>
+						<option>French</option>
+						<option>Russian</option>
+						<option>Spanish</option>
+						<option>Mandarin</option>
+					</select>
+				</div>				
+				<input type="submit" value="Join the club" id="formSubmit"/>	
+			</form>
+		</div>
+	</div>
+	<footer>
+		<p>Copyright &copy; Peter Campbell, 2018</p>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Theseus and the Minotaur | Forum</title>
+	<link rel="stylesheet" href="./stylesheets/stylesheet.css">
+</head>
+<body>
+	<header>
+		<h1>Theseus and the Minotaur</h1>
+		<img id="logo" src="./img/bull-horns_large.png" alt="Horns of the Minotaur">
+	</header>
+	<div id="wrapper">
+		<div id="groups">
+			<div class="info">
+			<h3>Forums</h3>
+			<ul>
+
+				<li> <a href = "placeholder.html">
+					Level too hard: Ways to win Theseus and the Minotaur levels</a> 
+				</li>
+				<li> <a href = "placeholder.html">					
+					Theseus LAN Night: Discussing LAN nights for playing this awesome game</a>
+				</li>	
+				<li> <a href = "placeholder.html">
+					Game Bugs: Let us know if you have found any bugs with this programme </a>
+				</li>	
+				<li> <a href = "placeholder.html">
+					Love this game!: Rave about beating the Minotaur!!!!! </a>
+				</li>	
+				<li> <a href = "placeholder.html">
+					All hindi: Want to talk about Theseus in hindi? Join the club!</a>
+				</li>	
+			</ul>
+			</div>
+
+		</div>
+		<div id= "currentDiscussion">
+		<div class="content">
+				<table>
+				<caption>Level too hard: Ways to win Theseus and the Minotaur levels</caption>
+				<thead>
+					<tr><th>User</th> <th>Message</th><th></th></tr>
+				</thead>	
+				<tr><td>joan of arc</td> <td>cant beat level three. any hints??????</td><td>
+					<div class="likeIt">
+						<img src="./img/thumbs-down-small.png" alt="Thumbs down" title="Thumbs down" class="thumbsdown">
+						<p>34</p>
+						<img src="./img/thumbs-up-small.png" alt="Thumbs up" title="Thumbs up" class="thumbsup">	
+					</div> 
+				</td></tr>
+				<tr><td>theseus</td><td> Why can't I just KILL the minotaur!</td>
+					<td><div class="likeIt">
+						<img src="./img/thumbs-down-small.png" alt="Thumbs down" title="Thumbs down" class="thumbsdown">
+						<p class="count">12</p>
+						<img src="./img/thumbs-up-small.png" alt="Thumbs up" title="Thumbs up" class="thumbsup">	
+						</div>
+				</td></tr>
+					<tr><td>aab</td><td> It's easy, just think like a minotaur!</td>
+					<td><div class="likeIt">
+						<img src="./img/thumbs-down-small.png" alt="Thumbs down" title="Thumbs down" class="thumbsdown">
+						<p class="count">-3</p>
+						<img src="./img/thumbs-up-small.png" alt="Thumbs up" title="Thumbs up" class="thumbsup">	
+						</div>
+				</td></tr>
+
+				</table>
+
+		</div>
+		</div>		
+		<div id= "myMessages">
+		<div class="info">
+			<h3>Joan of Arc's messages:</h3>
+			<ul>
+			<li>cant beat level three. any hints?????? </li>
+			<li>Who thinks the minotaur is cheating?</li> 
+			<li>I want STEAK!</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+	<footer>
+		<p>Copyright &copy; Peter Campbell, 2018</p>
+	</footer>
+</body>
+</html>

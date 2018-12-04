@@ -1,0 +1,175 @@
+create database TaM;
+use TaM;
+/* Create user table  */
+create table user
+(user_id INT not null auto_increment,
+email CHAR(72),
+nickname CHAR (30),
+password CHAR(50),
+language CHAR(2),
+primary key (user_id));
+/* Insert user */
+insert into user 	
+(email, nickname, password, language) values
+('john@theseus.com','johny boy','secretword', 'en'),
+('joan@minataur.com','joan of arc','winning', 'en'),
+('jason@argonauts.com','golden fleece','fleeced','en'),
+('aab@theseus.com','aab','theseus','hi'), 
+('taalika@ariadna.net','taalika','thread','hi');
+
+/*ACCESS ALL USERS */
+select * from user;
+
+/* ACCESS USER */
+
+select nickname, email, language from user where email = 'john@theseus.com';
+select nickname, email, language from user where email = 'aab@theseus.com';
+select nickname, email, language from user where email = 'jason@argonauts.com';
+
+
+/* UPDATE USER INFO */
+update user set email ='johnyboy@argos.net' where user_id = 1;
+select * from user where user_id = 1;
+update user set nickname ='theseus revenge' where user_id = 1;
+update user set password ='password1234' where user_id =1;
+select * from user where user_id = 1;
+
+/* SHOW ONLY ENGLISH SPEAKERS*/
+select nickname as 'Nick name', email as 'E-mail', language as 'Language' from user where language = 'en';
+
+/*SHOW ONLY HINDI SPEAKERS*/
+select nickname as 'Nick name', email as 'E-mail', language as 'Language' from user where language = 'hi';
+
+
+/* CREATE TABLE FOR CHAT FORUM */
+create table forum
+(forum_id INT not null auto_increment,
+user_id INT,
+name CHAR(40),
+subject CHAR(64),
+primary key (forum_id),
+foreign key (user_id) references user(user_id)
+);
+
+/*ADD FORUMS TO TABLE */
+insert into forum
+(user_id, name, subject) values
+('1', 'Level too hard','Ways to win Theseus and the Minotaur levels'),
+('4','Theseus LAN Night','Discussing LAN nights for playing this awesome game'),
+('1','Game Bugs','Let us know if you have found any bugs with this programme'),
+('2','Love this game!', 'Rave about beating the Minotaur!!!!!'),
+('3','All hindi','Want to talk about Theseus in hindi? Join the club!');
+
+/*SHOW FORUMS AND CREATOR
+inner join */ 
+select forum.name as 'Forum', forum.subject as 'Subject' , user.nickname as 'Started by:'
+from forum
+inner join user on forum.user_id = user.user_id order by user.nickname asc;
+
+
+/* FORUM FUNCTIONALITY:
+* DELETE CHAT / SHOW FORUMS*/
+select * from forum;
+delete from forum where forum_id = 2;
+select * from forum;
+
+/* CREATE AND POPULATE MESSAGE TABLE */
+
+create table message 
+(message_id INT not null auto_increment,
+maintxt TEXT,
+user_id INT,
+forum_id INT,
+date DATETIME DEFAULT CURRENT_TIMESTAMP,
+primary key (message_id),
+foreign key (user_id) references user(user_id),
+foreign key (forum_id) references forum(forum_id)
+);
+/*insert messages*/					
+insert into message 
+(user_id, forum_id, maintxt) values
+(1, 4,'Great game. So much fun!!!!'),
+(2, 3,'Would love to play this multiplayer!'),
+(3, 4,'nah, this is boring. you should try playing bullrush...'),
+(4, 1,'cant beat level three. any hints??????');
+
+/*show all messages */
+select * from message;
+
+/*show all messages with user name included */
+select user.nickname as 'Written by:', maintxt as 'Message', date as 'Written at:' 
+from message
+inner join user on message.user_id = user.user_id order by date desc;
+
+/*show all messages with user name and forum included for only english speakers */
+select user.nickname as 'Written by:', forum.name as 'Forum discussion:', maintxt as 'Message', date as 'Written at:' 
+from message
+inner join user on message.user_id = user.user_id 
+inner join forum on message.forum_id = forum.forum_id where user.language = 'en' order by date desc ;
+
+
+/*show all messages with user name and forum included for only hindi speakers */
+
+select user.nickname as 'Written by:', forum.name as 'Forum discussion:', maintxt as 'Message', date as 'Written at:' 
+from message
+inner join user on message.user_id = user.user_id 
+inner join forum on message.forum_id = forum.forum_id where user.language = 'hi' order by date desc ;
+
+
+/*CREATE RATING TABLE*/
+create table rating
+(like_id int not null auto_increment,
+likes INT(9),
+dislikes INT(9),
+message_id int,
+user_id int,
+primary key (like_id),
+foreign key (message_id) references message(message_id) 
+);
+/*INSERT INTO RATING TABLE*/
+
+insert into rating (user_id, message_id, likes, dislikes) values
+('1', '1', '0', '0'),
+('1', '2', '0', '0'),
+('1', '3', '0', '0'),
+('1', '4', '0', '0');
+
+
+
+insert into rating
+(user_id, message_id, likes, dislikes) values
+('1', '1', '33', '11'),
+('2', '2', '15', '3'),
+('3', '3', '4', '9'),
+('1', '1', '1','12');
+
+/*Show ratings for messages*/
+select message.maintxt as 'Message', likes, dislikes 
+from rating
+inner join message on rating.message_id = message.message_id;
+
+/*Calculate total of likes for each row*/
+select message.maintxt as 'Message', likes - dislikes as 'Likes'
+from rating
+inner join message on rating.message_id = message.message_id;
+
+
+
+/*Calculate total likes for each message with all additional information from four tables */
+select user.nickname as 'Written by:', forum.name as 'Forum discussion:', 
+maintxt as 'Message:', date as 'Written at:',  rating.likes - rating.dislikes as 'Likes' 
+from message
+inner join user on message.user_id = user.user_id 
+inner join forum on message.forum_id = forum.forum_id
+inner join rating on rating.message_id = message.message_id 
+where (rating.likes- rating.dislikes)    > '0' 
+order by  rating.likes - rating.dislikes  desc ;
+
+
+/*Remove tables*/
+drop table rating;
+drop table message;
+drop table forum;
+drop table user;
+show databases;
+drop database TaM;
